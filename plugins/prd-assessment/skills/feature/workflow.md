@@ -1,0 +1,16 @@
+# Feature implementation workflow
+
+This is the portable Codex adaptation of [the original feature workflow](references/original-workflow.md). Paths to `instructions/`, `references/` and `scripts/` are relative to this skill directory, not the user's project. Project instructions and explicit user directions take precedence. The original is retained as reference; follow this file when the two differ.
+
+1. **Plan.** Read [planner](instructions/planner.md) and [task management](references/task-management.md). Inspect the project and any supplied PRD, break work into ordered tasks with dependencies and identify relevant risks. Reuse the PRD Change Plan and feature directory. When a durable plan is useful, put `implementation-plan.md` next to the PRD; without a PRD follow the project's conventions and do not create a duplicate feature directory.
+2. **Implement and verify.** For each meaningful task, apply [worker](instructions/worker.md) or [refactor](instructions/refactor.md), inspect relevant existing code and implement within scope. Follow project testing conventions and [test-runner](instructions/test-runner.md); choose appropriate tests for the change. On failure, investigate with [debugger](instructions/debugger.md), rerun relevant checks, and report unresolved failures rather than claiming success. Use a maximum of three repeated debugging attempts before reassessing or reporting the blocker.
+3. **Review.** Review the resulting changes using [reviewer](instructions/reviewer.md) and [senior reviewer](instructions/senior-reviewer.md), with [architecture principles](references/architecture-principles.md) as relevant. Fix actionable findings and recheck affected behavior. For security-sensitive work, also use [security auditor](instructions/security-auditor.md) and [security guidance](references/security-guidelines.md).
+4. **Document and report.** Follow project documentation conventions and [documenter](instructions/documenter.md); update appropriate existing documentation when needed. If a durable implementation report is useful, save `implementation.md` next to the PRD and avoid duplicates. Summarize changes, checks, review findings, and any remaining limitations.
+
+## Delegation and environment
+
+Use subagents for separate roles when available and authorized by higher-priority instructions or the user's request. Otherwise perform the roles sequentially in the current session. Do not assume Cursor, Claude, Linear, Node, a Git repository, `.agent/config.json`, or project-specific commands are present. Discover test commands and artifact paths from the current project. Avoid creating unnecessary tests, reports, files, or configuration.
+
+Branch creation, commits, GitHub issues, repository creation, PRs, and other external actions require appropriate authorization and must follow the user's actual request. The presence of a remote or `gh` alone is not authorization.
+
+The original optional metrics utility is preserved at [scripts/metrics-report.js](scripts/metrics-report.js). It expects the original project's `.agent/config.json`, Node.js and session-report format; use it only when that configuration and metrics workflow exist and are relevant. It is not required to implement a feature.

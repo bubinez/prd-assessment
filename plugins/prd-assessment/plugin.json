@@ -1,6 +1,6 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "prd-assessment",
-  "version": "1.0.0",
-  "description": "PRD creation, codebase assessment, and feature decomposition workflow."
+  "version": "1.1.0",
+  "description": "PRD assessment and feature implementation workflows."
 }
