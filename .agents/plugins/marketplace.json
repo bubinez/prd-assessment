@@ -1,0 +1,10 @@
+{
+  "name": "prd-assessment-marketplace",
+  "interface": { "displayName": "PRD Assessment" },
+  "plugins": [{
+    "name": "prd-assessment",
+    "source": { "source": "local", "path": "./plugins/prd-assessment" },
+    "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+    "category": "Productivity"
+  }]
+}
